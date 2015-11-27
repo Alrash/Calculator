@@ -218,7 +218,7 @@ int Output::printkey(char ch)
 			wattron(keywin, A_BOLD);
 			wattron(keywin, A_BLINK);
 			if (ch == '~')
-				mvwprintw(keywin, p.x, p.y, "%+/-");
+				mvwprintw(keywin, p.x, p.y, "+/-");
 			else
 				mvwprintw(keywin, p.x, p.y, "%c", ch);
 			wattroff(keywin, A_BLINK);
