@@ -201,6 +201,14 @@ int Deal::equal()
 
 int Deal::sign()
 {//输入数字的符号位
+	if (IsFlag())
+	{
+		dq.push_back(num);
+		expression += num;
+		num = "";
+		sf.clear();
+	}
+	
 	if (sf.empty())
 		sf = "-";
 	else
