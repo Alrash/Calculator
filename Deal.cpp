@@ -117,7 +117,7 @@ int Deal::leftbraket()
 	else
 	{
 		//20  (20 + 10)
-		if (dq.back().back() >= '0' && dq.back().back() <= '9')
+		if (!dq.empty() && dq.back().back() >= '0' && dq.back().back() <= '9')
 			dq.push_back("*");
 		dq.push_back("(");
 		expression += "(";
@@ -218,14 +218,6 @@ int Deal::sign()
 }
 
 int Deal::charA(char ch)
-{
-	sf.clear();
-	num.clear();
-
-	return 0;
-}
-
-int Deal::charC(char ch)
 {//四个全部清空
 	sf.clear();
 	dq.clear();
@@ -235,12 +227,21 @@ int Deal::charC(char ch)
 	return 0;
 }
 
+int Deal::charC(char ch)
+{
+	sf.clear();
+	num.clear();
+
+	return 0;
+}
+
 int Deal::charnum(char ch)
 {	
 	if (num.empty() == true)
 	{
-		if (dq.size() == 1)
+		if (dq.size() == 1 && dq.front().compare("("))
 		{//按下等于号后，想继续按数字
+		 //&&右值是防止输入
 		 //例：5+5=10后按下2,即为2而不是102之类
 			dq.clear();
 			expression.clear();
