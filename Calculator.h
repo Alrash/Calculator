@@ -3,14 +3,15 @@
 #define _CALCULATOR_H
 
 #include <string>
-#include "Calculate.h"
 #include "Input.h"
 #include "Deal.h"
 #include "Output.h"
+#include "Calculate.h"
 
 using std::string;
 
-class Calculator
+class Calculator :
+	public Input, public Output, public Deal
 {
 public:
 	Calculator();
@@ -19,13 +20,7 @@ public:
 	int run();
 private:
 	Calculate *cal;
-	Input in;
-	Deal deal;
-	Output out;
-
-	string error;
-	string value;
-	string left;
+	string error, value, left;
 	char ch;
 };
 
