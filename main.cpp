@@ -89,6 +89,8 @@ int main()
 
 		calculator.output(calculator.getExpression() + left, value, error, ch);
 	}
+	
+	endwin();
 
 	return 0;
 }
