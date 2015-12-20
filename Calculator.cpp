@@ -23,8 +23,8 @@ int Calculator::run()
 	keypad(stdscr, true);
 	//start_color();
 
-	out.init();
-	out.Out("", "", "", 'e');
+Output::init();
+	Output::Out("", "", "", 'e');
 
 	while (true)
 	{
@@ -32,18 +32,18 @@ int Calculator::run()
 
 		try
 		{
-			in.get();
-			ch = in.take();
+			Input::get();
+			ch = Input::take();
 
-			deal.deal(ch);
-			value = deal.getNum();
+			Deal::deal(ch);
+			value = Deal::getNum();
 
 			if (ch == ')' || ch == '=')
 			{
 
-				cal = new Calculate(deal.getDq());
+				cal = new Calculate(Deal::getDq());
 				value = cal->calculate();
-				deal.del(value);
+				Deal::del(value);
 				delete cal;
 			}
 		}
@@ -91,7 +91,7 @@ int Calculator::run()
 			}
 		}
 
-		out.Out(deal.getExpression(), value, error, ch);
+		Output::Out(Deal::getExpression(), value, error, ch);
 	}
 
 	endwin();
