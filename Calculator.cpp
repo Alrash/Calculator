@@ -23,7 +23,7 @@ int Calculator::run()
 	keypad(stdscr, true);
 	//start_color();
 
-Output::init();
+	Output::init();
 	Output::Out("", "", "", 'e');
 
 	while (true)
